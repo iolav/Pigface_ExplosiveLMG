@@ -9,7 +9,7 @@ namespace Pigface_ExplosiveLMG
     {
         private const string PluginGUID = "iolav.Pigface_ExplosiveLMG";
         private const string PluginName = "Explosive LMG";
-        private const string PluginVersion = "1.0.0";
+        private const string PluginVersion = "1.0.1";
 
         private readonly Harmony MyHarmony = new Harmony(PluginGUID);
 

@@ -11,12 +11,14 @@ namespace Pigface_ExplosiveLMG.Patches
     {
         static void Postfix(Gun __instance)
         {
+            if (!__instance.name.Contains("lmg_gun"))
+                return;
+
             NailBombInstance[] BombInstances = Resources.FindObjectsOfTypeAll<NailBombInstance>();
 
             NailBombInstance NewBomb = UnityEngine.Object.Instantiate(BombInstances[0], __instance.muzzlePoint.position, __instance.transform.rotation);
 
-            float Force = 100f;
-            NewBomb.GetComponent<Rigidbody>().AddForce(__instance.muzzlePoint.forward * Force * 1.5f + __instance.muzzlePoint.up * Force / 8f, ForceMode.Impulse);
+            NewBomb.GetComponent<Rigidbody>().AddForce(__instance.muzzlePoint.forward * 1000f, ForceMode.Impulse);
         }
     }
 }
